@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Livre</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ajouter un Livre</h1>
+        <div class="form-container">
+            <form id="search-book-form">
+                <input type="text" id="search" placeholder="Rechercher un livre">
+                <button type="submit">Rechercher</button>
+            </form>
+        </div>
+        <div class="form-container">
+            <form id="book-form">
+                <input type="text" id="title" placeholder="Titre" required>
+                <input type="text" id="author" placeholder="Auteur" required>
+                <input type="date" id="publicationDate" placeholder="Date de Publication" required>
+                <select id="available">
+                    <option value="true">Disponible</option>
+                    <option value="false">Indisponible</option>
+                </select>
+                <button type="submit">Ajouter le Livre</button>
+            </form>
+        </div>
+        <div id="book-list" class="book-list"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

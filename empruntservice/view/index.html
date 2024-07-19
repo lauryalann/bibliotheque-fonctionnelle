@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Emprunts</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestion des Emprunts</h1>
+        
+        <!-- Formulaire de Réservation -->
+        <div class="form-container">
+            <h2>Reserver un Livre</h2>
+            <form id="reservation-form">
+                <label for="member">Membre :</label>
+                <select id="member" required>
+                    <!-- Options seront chargées dynamiquement -->
+                </select>
+                
+                <label for="book">Livre :</label>
+                <select id="book" required>
+                    <!-- Options seront chargées dynamiquement -->
+                </select>
+                <input type="date" id="dateEmprunt" placeholder="Date d'emprunt" required>
+                <input type="date" id="dateRetour" placeholder="Date de Retour" required>
+                <button type="submit">Reserver</button>
+            </form>
+        </div>
+
+        <!-- Formulaire de Retour -->
+        <div class="form-container">
+            <h2>Retourner un Livre</h2>
+            <form id="return-form">
+                <label for="return-member">Membre :</label>
+                <select id="return-member" required>
+                    <!-- Options seront chargées dynamiquement -->
+                </select>
+                
+                <label for="return-book">Livre :</label>
+                <select id="return-book" required>
+                    <!-- Options seront chargées dynamiquement -->
+                </select>
+                
+                <button type="submit">Retourner</button>
+            </form>
+        </div>
+
+        <!-- Formulaire de Renouvellement -->
+        <div class="form-container">
+            <h2>Renouveler un Emprunt</h2>
+            <form id="renewal-form">
+                <label for="renew-member">Membre :</label>
+                <select id="renew-member" required>
+                    <!-- Options seront chargées dynamiquement -->
+                </select>
+                
+                <label for="renew-book">Livre :</label>
+                <select id="renew-book" required>
+                    <!-- Options seront chargées dynamiquement -->
+                </select>
+                
+                <button type="submit">Renouveler</button>
+            </form>
+        </div>
+        <div id="emprunt-list" class="emprunt-list"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

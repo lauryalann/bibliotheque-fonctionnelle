@@ -1,0 +1,78 @@
+version: "3.9"
+
+services:
+  
+  emprunt-manager:
+    container_name: emprunt-manager
+    build:
+      context: ./emprunt-manager
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./emprunt-manager:/app
+      - /app/node_modules
+      
+  memberservice:
+    container_name: memberservice
+    build:
+      context: ./memberservice
+    image: francescoxx/node_live_app
+    ports:
+      - "3002:3002"
+    environment:
+      - PG_DB=librairie
+      - PG_USER=francesco
+      - PG_PASSWORD=12345
+      - PG_HOST=node_database
+    depends_on:
+      - node_database
+    command: bash -c 'while !</dev/tcp/node_database/5432; do sleep 1; done; node app.js'
+    
+  livreservice:
+    container_name: livreservice
+    build:
+      context: ./livreservice
+    image: francescoxx/node_live_app2
+    ports:
+      - "3001:3001"
+    environment:
+      - PG_DB=librairie
+      - PG_USER=francesco
+      - PG_PASSWORD=12345
+      - PG_HOST=node_database
+    depends_on:
+      - node_database
+    command: bash -c 'while !</dev/tcp/node_database/5432; do sleep 1; done; node livre_app.js'
+    
+  empruntservice:
+    container_name: empruntservice
+    build:
+      context: ./empruntservice
+    image: francescoxx/node_live_app3
+    ports:
+      - "3003:3003"
+    environment:
+      - PG_DB=librairie
+      - PG_USER=francesco
+      - PG_PASSWORD=12345
+      - PG_HOST=node_database
+    depends_on:
+      - node_database
+    command: bash -c 'while !</dev/tcp/node_database/5432; do sleep 1; done; node emprunt_app.js'
+     
+     
+  node_database:
+    container_name: node_database
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=librairie
+      - POSTGRES_USER=francesco
+      - POSTGRES_PASSWORD=12345
+    volumes:
+      - node_db_data:/var/lib/postgresql/data
+      
+volumes:
+  node_db_data: {}

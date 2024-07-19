@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+select{
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #4cae4c;
+}
+.book-list {
+    margin-top: 20px;
+}
+
+.book-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f9f9f9;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.book-item strong {
+    flex: 1;
+}
+
+.book-item button {
+    margin-left: 10px;
+    background-color: #d9534f;
+}
+
+.book-item button:hover {
+    background-color: #c9302c;
+}
+
+.book-item button.edit {
+    background-color: #f0ad4e;
+}
+
+.book-item button.edit:hover {
+    background-color: #ec971f;
+}
